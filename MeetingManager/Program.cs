@@ -2,7 +2,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MeetingManager.Data;
 using MeetingManager.Areas.Identity.Data;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.CodeAnalysis.Options;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
+
 var connectionString = builder.Configuration.GetConnectionString("MeetingDbContextConnection") ?? throw new InvalidOperationException("Connection string 'MeetingDbContextConnection' not found.");
 
 builder.Services.AddDbContext<MeetingDbContext>(options => options.UseSqlServer(connectionString));
@@ -12,6 +17,10 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireUppercase = false;
+});
 
 var app = builder.Build();
 

@@ -11,22 +11,12 @@ namespace MeetingManager.Areas.Identity.Data;
 public class ApplicationUser : IdentityUser
 {
     [PersonalData]
-    [Column(TypeName="nvarchar(100)")]
+    [Column(TypeName = "nvarchar(100)")]
     public string FirstName { get; set; }
+
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string LastName { get; set; }
-    [PersonalData]
-    [Column(TypeName = "nvarchar(100)")]
-    public string Email { get; set; }
-    [PersonalData]
-    [Column(TypeName = "nvarchar(20)")]
-    public string PhoneNumber { get; set; }
-    [PersonalData]
-    [Column(TypeName = "nvarchar(100)")]
-    public string Password { get; set; }
-
- 
-
+  
 }
 
