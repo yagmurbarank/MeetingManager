@@ -5,6 +5,10 @@ using MeetingManager.Areas.Identity.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 

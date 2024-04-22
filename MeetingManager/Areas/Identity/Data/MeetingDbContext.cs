@@ -1,4 +1,5 @@
 ﻿using MeetingManager.Areas.Identity.Data;
+using MeetingManager.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,8 @@ public class MeetingDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
+    public DbSet<Meeting> Meetings { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
